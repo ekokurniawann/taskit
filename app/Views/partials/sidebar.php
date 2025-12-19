@@ -13,18 +13,22 @@
         </a>
 
         <?php if (session()->get('role_name') === 'Manager'): ?>
-            <a href="<?= base_url('users') ?>" 
-               class="block px-4 py-2 text-sm font-medium text-slate-600 rounded-md hover:bg-slate-50 hover:text-slate-900 transition-colors">
+            <a href="<?= base_url('manager/users') ?>" 
+               class="block px-4 py-2 text-sm font-medium rounded-md transition-colors 
+               <?= url_is('manager/users*') ? 'bg-slate-100 text-slate-900' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' ?>">
                 User Management
             </a>
-            <a href="<?= base_url('departments') ?>" 
-               class="block px-4 py-2 text-sm font-medium text-slate-600 rounded-md hover:bg-slate-50 hover:text-slate-900 transition-colors">
+            
+            <a href="<?= base_url('manager/departments') ?>" 
+               class="block px-4 py-2 text-sm font-medium rounded-md transition-colors 
+               <?= url_is('manager/departments*') ? 'bg-slate-100 text-slate-900' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' ?>">
                 Departments
             </a>
         <?php endif; ?>
 
         <a href="<?= base_url('tasks') ?>" 
-           class="block px-4 py-2 text-sm font-medium text-slate-600 rounded-md hover:bg-slate-50 hover:text-slate-900 transition-colors">
+           class="block px-4 py-2 text-sm font-medium rounded-md transition-colors 
+           <?= url_is('tasks*') ? 'bg-slate-100 text-slate-900' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' ?>">
             My Tasks
         </a>
     </nav>

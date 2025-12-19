@@ -12,7 +12,6 @@ class Auth extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        // PERBAIKAN: Arahkan ke subfolder sesuai struktur yang baru
         return view('pages/auth/login', [
             'title' => 'Masuk'
         ]);
@@ -32,7 +31,6 @@ class Auth extends BaseController
                 
                 $userDetail = $userModel->getUserComplete($user['id']);
 
-                // Tambahan: Pastikan user berstatus active (Senior Dev Habit)
                 if ($userDetail['status'] !== 'active') {
                     return redirect()->back()->withInput()->with('error', 'Akun Anda sudah tidak aktif.');
                 }
@@ -58,7 +56,6 @@ class Auth extends BaseController
     public function logout()
     {
         session()->destroy();
-        // Redirect ke URL login, bukan memanggil view langsung
         return redirect()->to('/login')->with('success', 'Anda telah berhasil keluar.');
     }
 }
